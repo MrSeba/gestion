@@ -1,18 +1,26 @@
 <?php
 include('conexion.php');
-$id = $_POST['id-prod'];
+$id = $_POST['id-prov'];
+$rutprov= $_POST['rut'];
 $proceso = $_POST['pro'];
 $nombre = $_POST['nombre'];
-$tipo = $_POST['tipo'];
-$precio_uni = $_POST['precio-uni'];
-$precio_dis = $_POST['precio-dis'];
-$fecha = date('Y-m-d');
+$decripcion = $_POST['descrip'];
+$estado = "1";
+
 //VERIFICAMOS EL PROCESO
 
 switch($proceso){
 	case 'Registro':
-		mysqli_query($conexion,"INSERT INTO productos (nomb_prod, tipo_prod, precio_unit, precio_dist, fecha_reg)VALUES('$nombre','$tipo','$precio_uni','$precio_dis', '$fecha')");
-	break;
+		$res= mysqli_query($conexion,"SELECT COUNT(supplierRut) from supplier where supplierRut=$rut prov");
+		if($res>0){
+			echo "Posee Registro";
+			break;
+		}else {
+        mysqli_query($conexion,"INSERT INTO supplier (supplierRut, supplierName, )VALUES('$nombre','$tipo','$precio_uni','$precio_dis', '$fecha')");
+        	break;
+		}
+		
+	
 	
 	case 'Edicion':
 		mysqli_query($conexion,"UPDATE productos SET nomb_prod = '$nombre', tipo_prod = '$tipo', precio_unit = '$precio_uni', precio_dist = '$precio_dis' WHERE id_prod = '$id'");
@@ -24,7 +32,7 @@ switch($proceso){
 
 $registro = mysqli_query($conexion,"SELECT * FROM productos ORDER BY id_prod ASC");
 
-//CREAMOS NUESTRA VISTA Y LA DEVOLVEMOS AL AJAX
+//CREAMOS NUESTRA VISTA YX LA DEVOLVEMOS AL AJA
 
 echo '<table class="table table-striped table-condensed table-hover">
         	<tr>

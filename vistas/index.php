@@ -6,6 +6,7 @@
 <link href="../css/estilo.css" rel="stylesheet">
 <script src="../js/jquery.js"></script>
 <script src="../js/myjava.js"></script>
+<script src="../js/validarRUT.js"></script>
 <link href="../bootstrap/css/bootstrap.css" rel="stylesheet">
 <link href="../bootstrap/css/bootstrap.min.css" rel="stylesheet">
 <link href="../bootstrap/css/bootstrap-theme.css" rel="stylesheet">
@@ -14,7 +15,7 @@
 <script src="../bootstrap/js/bootstrap.js"></script>
 </head>
 <body>
-    <header>ABARROTES "PHP & JQuery"</header>
+    <header>Sistema de Facturas</header>
     <section>
     <table border="0" align="center">
     	<tr>
@@ -33,6 +34,7 @@
                 <th width="150">Precio Distribuidor</th>
                 <th width="150">Fecha Registro</th>
                 <th width="50">Opciones</th>
+
             </tr>
         <?php
             include('../php/conexion.php');
@@ -56,39 +58,32 @@
           <div class="modal-content">
             <div class="modal-header">
               <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-              <h4 class="modal-title" id="myModalLabel"><b>Registra o Edita un Producto</b></h4>
+               <h4 class="modal-title" id="myModalLabel"><b>Registra o Edita un Producto</b></h4>
             </div>
-            <form id="formulario" class="formulario" onsubmit="return agregaRegistro();">
+            <form id="formulario" class="formulario" onsubmit="return agregaRegistro(rut);">
             <div class="modal-body">
 				<table border="0" width="100%">
                		 <tr>
-                        <td colspan="2"><input type="text" required="required" readonly="readonly" id="id-prod" name="id-prod" readonly="readonly" style="visibility:hidden; height:5px;"/></td>
+                        <td colspan="2"><input type="text" required="required" readonly="readonly" id="id-prov" name="id-prov" readonly="readonly" style="visibility:hidden; height:5px;"/></td>
                     </tr>
                      <tr>
                     	<td width="150">Proceso: </td>
                         <td><input type="text" required="required" readonly="readonly" id="pro" name="pro"/></td>
                     </tr>
                 	<tr>
-                    	<td>Nombre: </td>
+                        <td>*Rut Proveedor: </td>
+                        <td><input type="text" id="rut" name="rut" required="required" oninput="checkRut(this)" placeholder="INGRESE RUT PROVEEDOR"></td>
+                    </tr>
+                    <tr>
+                    	<td>*Nombre Proveedor: </td>
                         <td><input type="text" required="required" name="nombre" id="nombre" maxlength="100"/></td>
                     </tr>
                     <tr>
-                    	<td>Tipo: </td>
-                        <td><select required="required" name="tipo" id="tipo">
-                        		<option value="enlatados">Enlatados</option>
-                                <option value="organicos">Organicos</option>
-                                <option value="nocomestibles">No Comestibles</option>
-                                <option value="otros">Otros</option>
-                            </select></td>
+                        <td>Descripción: </td>
+                        <td><textarea  name="descrip" id="descrip" row="10" cols="40" maxlength="400"></textarea> </td>
                     </tr>
-                    <tr>
-                    	<td>Precio Unitario: </td>
-                        <td><input type="number" required="required" name="precio-uni" id="precio-uni"/></td>
-                    </tr>
-                    <tr>
-                    	<td>Precio Distribuidor: </td>
-                        <td><input type="number"  required="required" name="precio-dis" id="precio-dis"/></td>
-                    </tr>
+                    
+                   
                     <tr>
                     	<td colspan="2">
                         	<div id="mensaje"></div>
@@ -98,8 +93,9 @@
             </div>
             
             <div class="modal-footer">
-            	<input type="submit" value="Registrar" class="btn btn-success" id="reg"/>
+            	<input type="submit" value="Registro" class="btn btn-success" id="reg" />
                 <input type="submit" value="Editar" class="btn btn-warning"  id="edi"/>
+                
             </div>
             </form>
           </div>

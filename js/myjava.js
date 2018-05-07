@@ -1,4 +1,5 @@
 $(function(){
+
 	$('#bd-desde').on('change', function(){
 		var desde = $('#bd-desde').val();
 		var hasta = $('#bd-hasta').val();
@@ -56,15 +57,15 @@ $(function(){
 	
 });
 
-function agregaRegistro(){
-	var url = '../php/agrega_producto.php';
+function agregaRegistro(rut){
+	var url = '../php/agrega_proveedor.php';
 	$.ajax({
 		type:'POST',
 		url:url,
 		data:$('#formulario').serialize(),
 		success: function(registro){
 			if ($('#pro').val() == 'Registro'){
-			$('#formulario')[0].reset();
+				$('#formulario')[0].reset();
 			$('#mensaje').addClass('bien').html('Registro completado con exito').show(200).delay(2500).hide(200);
 			$('#agrega-registros').html(registro);
 			return false;
