@@ -38,7 +38,7 @@
             </tr>
         <?php
             include('../php/conexion.php');
-            $registro = mysqli_query($conexion,"SELECT * FROM productos"); 
+            $registro = mysqli_query($conexion,"SELECT * FROM supplier"); 
             while($registro2 = mysqli_fetch_array($registro)){
                 echo '<tr>
                         <td>'.$registro2['nomb_prod'].'</td>

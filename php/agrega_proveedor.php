@@ -4,24 +4,25 @@ $id = $_POST['id-prov'];
 $rutprov= $_POST['rut'];
 $proceso = $_POST['pro'];
 $nombre = $_POST['nombre'];
-$decripcion = $_POST['descrip'];
+$descripcion = $_POST['descrip'];
 $estado = "1";
 
 //VERIFICAMOS EL PROCESO
 
 switch($proceso){
 	case 'Registro':
-		$res= mysqli_query($conexion,"SELECT COUNT(supplierRut) from supplier where supplierRut=$rut prov");
+		mysqli_query($conexion,"INSERT INTO supplier (supplierRut, supplierName, supplierDescrip, supplierStatus, process)VALUES('$rutprov','$nombre','$descripcion','$estado', '$proceso')");
+	break;
+		/*$res= mysqli_query($conexion,"SELECT COUNT() from supplier where supplierRut='$rutprov'");
+		echo $res;
 		if($res>0){
 			echo "Posee Registro";
 			break;
 		}else {
-        mysqli_query($conexion,"INSERT INTO supplier (supplierRut, supplierName, )VALUES('$nombre','$tipo','$precio_uni','$precio_dis', '$fecha')");
+        mysqli_query($conexion,"INSERT INTO supplier (supplierRut, supplierName, supplierDescrip, supplierStatus, process)VALUES('$rutprov','$nombre','$descripcion','$estado', '$proceso')");
         	break;
-		}
+		}*/
 		
-	
-	
 	case 'Edicion':
 		mysqli_query($conexion,"UPDATE productos SET nomb_prod = '$nombre', tipo_prod = '$tipo', precio_unit = '$precio_uni', precio_dist = '$precio_dis' WHERE id_prod = '$id'");
 	break;
@@ -30,7 +31,7 @@ switch($proceso){
 
 //ACTUALIZAMOS LOS REGISTROS Y LOS OBTENEMOS
 
-$registro = mysqli_query($conexion,"SELECT * FROM productos ORDER BY id_prod ASC");
+$registro = mysqli_query($conexion,"SELECT * FROM supplier ORDER BY supplierID ASC");
 
 //CREAMOS NUESTRA VISTA YX LA DEVOLVEMOS AL AJA
 
