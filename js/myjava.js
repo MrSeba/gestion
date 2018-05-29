@@ -57,7 +57,7 @@ $(function(){
 	
 });
 
-function agregaRegistro(rut){
+function agregaRegistro(){
 	var url = '../php/agrega_proveedor.php';
 	$.ajax({
 		type:'POST',

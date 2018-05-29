@@ -11,7 +11,8 @@ $estado = "1";
 
 switch($proceso){
 	case 'Registro':
-		mysqli_query($conexion,"INSERT INTO supplier (supplierRut, supplierName, supplierDescrip, supplierStatus, process)VALUES('$rutprov','$nombre','$descripcion','$estado', '$proceso')");
+		mysqli_query($conexion,"INSERT INTO 'supplier'('supplierRut', 'supplierName', 'supplierDescrip', 'supplierStatus', 'process') VALUES ('$rutprov','$nombre','$descripcion','$estado', '$proceso')");
+		
 	break;
 		/*$res= mysqli_query($conexion,"SELECT COUNT() from supplier where supplierRut='$rutprov'");
 		echo $res;
