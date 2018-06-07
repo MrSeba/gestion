@@ -31,7 +31,7 @@ switch($proceso){
 		}*/
 		
 	case 'Edicion':
-		mysqli_query($conexion,"UPDATE productos SET nomb_prod = '$nombre', tipo_prod = '$tipo', precio_unit = '$precio_uni', precio_dist = '$precio_dis' WHERE id_prod = '$id'");
+		mysqli_query($conexion,"UPDATE supplier SET supplierName = '$nombre', supplierRut = '$rutprov', supplierDescrip = '$descripcion' WHERE supplierID = '$id'");
 	break;
 }
 
@@ -44,8 +44,8 @@ $registro = mysqli_query($conexion,"SELECT * FROM supplier ORDER BY supplierID A
 
 echo '<table class="table table-striped table-condensed table-hover">
         	<tr>
-            	<th width="300">#</th>
-                <th width="200">R.U.T</th>
+            	<th width="50">#</th>
+                <th width="80">R.U.T</th>
                 <th width="150">Nombre</th>
                 <th width="150">Descripcion</th>
 				<th width="50">Opciones</th>

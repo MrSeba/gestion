@@ -5,28 +5,26 @@ $dato = $_POST['dato'];
 
 //EJECUTAMOS LA CONSULTA DE BUSQUEDA
 
-$registro = mysqli_query($conexion,"SELECT * FROM productos WHERE nomb_prod LIKE '%$dato%' OR tipo_prod LIKE '%$dato%' ORDER BY id_prod ASC");
+$registro = mysqli_query($conexion,"SELECT * FROM supplier WHERE supplierName LIKE '%$dato%' ORDER BY supplierID ASC");
 
 //CREAMOS NUESTRA VISTA Y LA DEVOLVEMOS AL AJAX
 
 echo '<table class="table table-striped table-condensed table-hover">
         	<tr>
-            	<th width="300">Nombre</th>
-                <th width="200">Tipo</th>
-                <th width="150">Precio Unitario</th>
-                <th width="150">Precio Distribuidor</th>
-                <th width="150">Fecha Registro</th>
-                <th width="50">Opciones</th>
+            	<th width="50">#</th>
+                <th width="80">R.U.T</th>
+                <th width="150">Nombre</th>
+                <th width="150">Descripcion</th>
+				<th width="50">Opciones</th>
             </tr>';
 if(mysqli_num_rows($registro)>0){
 	while($registro2 = mysqli_fetch_array($registro)){
 		echo '<tr>
-				<td>'.$registro2['nomb_prod'].'</td>
-				<td>'.$registro2['tipo_prod'].'</td>
-				<td>S/. '.$registro2['precio_unit'].'</td>
-				<td>S/. '.$registro2['precio_dist'].'</td>
-				<td>'.fechaNormal($registro2['fecha_reg']).'</td>
-				<td><a href="javascript:editarProducto('.$registro2['id_prod'].');" class="glyphicon glyphicon-edit"></a> <a href="javascript:eliminarProducto('.$registro2['id_prod'].');" class="glyphicon glyphicon-remove-circle"></a></td>
+				<td>'.$registro2['supplierID'].'</td>
+				<td>'.$registro2['supplierRut'].'</td>
+				<td>'.$registro2['supplierName'].'</td>
+				<<td>'.$registro2['supplierDescrip'].'</td>
+				<td><a href="javascript:editarProducto('.$registro2['supplierID'].');" class="glyphicon glyphicon-edit"></a> <a href="javascript:eliminarProducto('.$registro2['supplierID'].');" class="glyphicon glyphicon-remove-circle"></a></td>
 				</tr>';
 	}
 }else{

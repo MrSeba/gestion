@@ -66,9 +66,10 @@ function agregaRegistro(){
 		success: function(registro){
 			if ($('#pro').val() == 'Registro'){
 				$('#formulario')[0].reset();
-			$('#mensaje').addClass('bien').html('Registro completado con exito').show(200).delay(2500).hide(200);
-			$('#agrega-registros').html(registro);
-			return false;
+				$('#mensaje').addClass('bien').html('Registro completado con exito').show(200).delay(3500).hide(200);
+				$('#pro').val('Registro');
+				$('#agrega-registros').html(registro);
+				return false;
 			}else{
 			$('#mensaje').addClass('bien').html('Edicion completada con exito').show(200).delay(2500).hide(200);
 			$('#agrega-registros').html(registro);
@@ -136,9 +137,7 @@ var pregunta = confirm('¿Esta seguro de eliminar este Producto?');
 		} 
 	    });
 		e.preventDefault(); return false; 
-	}else{ 
-		return false; 
-	} 
+	}
 }
  
 function editarProducto(id){ 
@@ -154,10 +153,9 @@ $('#formulario')[0].reset();
 				$('#edi').show();
 				$('#pro').val('Edicion'); 
 				$('#id-prod').val(id);
-				$('#nombre').val(datos[0]); 
-				$('#tipo').val(datos[1]); 
-				$('#precio-uni').val(datos[2]);
-				$('#precio-dis').val(datos[3]);
+				$('#rut').val(datos[0]); 
+				$('#nombre').val(datos[1]); 
+				$('#descrip').val(datos[2]);
 				$('#registra-producto').modal({ 
 					show:true,
 					backdrop:'static' 

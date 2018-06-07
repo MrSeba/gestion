@@ -29,8 +29,8 @@
     <div class="registros" id="agrega-registros">
         <table class="table table-striped table-condensed table-hover">
             <tr>
-                <th width="300">#</th>
-                <th width="200">RUT</th>
+                <th width="50">#</th>
+                <th width="80">RUT</th>
                 <th width="150">Nombre</th>
                 <th width="150">Descripción</th>
                 <th width="50">Opciones</th>
