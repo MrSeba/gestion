@@ -18,7 +18,6 @@ switch($proceso){
 			echo "Error: ".$sql . "<br>" . $conexion->error;
 		}*/
 		mysqli_query($conexion,$sql);
-		
 	break;
 		/*$res= mysqli_query($conexion,"SELECT COUNT() from supplier where supplierRut='$rutprov'");
 		echo $res;
@@ -31,7 +30,13 @@ switch($proceso){
 		}*/
 		
 	case 'Edicion':
-		mysqli_query($conexion,"UPDATE supplier SET supplierName = '$nombre', supplierRut = '$rutprov', supplierDescrip = '$descripcion' WHERE supplierID = '$id'");
+		$sql="UPDATE supplier SET supplierRut = '$rutprov', supplierName = '$nombre', supplierDescrip = '$descripcion' WHERE supplierID = '$id'";
+		if (mysqli_query($conexion, $sql)) {
+    		echo "puta la wea";
+		} else {
+   			 echo "Error updating record: " . mysqli_error($conn);
+		}
+		//mysqli_query($conexion,$sql);
 	break;
 }
 
@@ -60,4 +65,6 @@ echo '<table class="table table-striped table-condensed table-hover">
 				</tr>';
 	}
 echo '</table>';
+
+mysqli_close($conexion);
 ?>

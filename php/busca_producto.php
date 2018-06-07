@@ -11,11 +11,11 @@ $registro = mysqli_query($conexion,"SELECT * FROM supplier WHERE supplierName LI
 
 echo '<table class="table table-striped table-condensed table-hover">
         	<tr>
-            	<th width="50">#</th>
-                <th width="80">R.U.T</th>
-                <th width="150">Nombre</th>
-                <th width="150">Descripcion</th>
-				<th width="50">Opciones</th>
+            	<th width="50"> #</th>
+                <th width="80"> R.U.T</th>
+                <th width="150"> Nombre</th>
+                <th width="150"> Descripcion</th>
+				<th width="50"> Opciones</th>
             </tr>';
 if(mysqli_num_rows($registro)>0){
 	while($registro2 = mysqli_fetch_array($registro)){

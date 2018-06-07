@@ -144,25 +144,24 @@ function editarProducto(id){
 $('#formulario')[0].reset();
    var url = '../php/edita_producto.php';
 		$.ajax({ 
-		type:'POST',
-		url:url,
-		data:'id='+id,
-			success: function(valores){
-			    var datos = eval(valores); 
-				$('#reg').hide(); 
-				$('#edi').show();
-				$('#pro').val('Edicion'); 
-				$('#id-prod').val(id);
-				$('#rut').val(datos[0]); 
-				$('#nombre').val(datos[1]); 
-				$('#descrip').val(datos[2]);
-				$('#registra-producto').modal({ 
-					show:true,
-					backdrop:'static' 
-				});
-			return false;
-			} 
+			type:'POST',
+			dataType: "json",
+			url:url,
+			data:'id='+id,
+				success: function(valores){
+				   // datety datos = eval(valores); 
+					$('#reg').hide(); 
+					$('#edi').show();
+					$('#pro').val('Edicion'); 
+					$('#id-prod').val(id);
+					$('#rut').val(valores[0]); 
+					$('#nombre').val(valores[1]); 
+					$('#descrip').val(valores[2]);
+					$('#registra-producto').modal({ 
+						show:true,
+						backdrop:'static' 
+					});
+				return false;
+				} 
 	    });
- e.preventDefault(); 
- return false;
 }
