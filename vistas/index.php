@@ -20,7 +20,9 @@
     <table border="0" align="center">
     	<tr>
         	<td width="335"><input type="text" placeholder="Busca un producto por: Nombre o Tipo" id="bs-prod"/></td>
-            <td width="100"><button id="nuevo-producto" class="btn btn-primary">Nuevo</button></td>
+            <td width="100"><button id="nuevo-proveedor" class="btn btn-primary">Nuevo Proveedor</button></td>
+            &nbsp;&nbsp;
+            <td width="100"><button id="nuevo-producto" class="btn btn-primary">Nueva Factura</button></td>
         </tr>
     </table>
     </section>
@@ -28,11 +30,10 @@
     <div class="registros" id="agrega-registros">
         <table class="table table-striped table-condensed table-hover">
             <tr>
-                <th width="300">Nombre</th>
-                <th width="200">Tipo</th>
-                <th width="150">Precio Unitario</th>
-                <th width="150">Precio Distribuidor</th>
-                <th width="150">Fecha Registro</th>
+                <th width="300">#</th>
+                <th width="200">RUT</th>
+                <th width="150">Nombre</th>
+                <th width="150">Descripción</th>
                 <th width="50">Opciones</th>
 
             </tr>
@@ -41,13 +42,13 @@
             $registro = mysqli_query($conexion,"SELECT * FROM supplier"); 
             while($registro2 = mysqli_fetch_array($registro)){
                 echo '<tr>
-                        <td>'.$registro2['nomb_prod'].'</td>
-                        <td>'.$registro2['tipo_prod'].'</td>
-                        <td>S/. '.$registro2['precio_unit'].'</td>
-                        <td>S/. '.$registro2['precio_dist'].'</td>
-                        <td>'.fechaNormal($registro2['fecha_reg']).'</td>
-                        <td><a href="javascript:editarProducto('.$registro2['id_prod'].');" class="glyphicon glyphicon-edit"></a> <a href="javascript:eliminarProducto('.$registro2['id_prod'].');" class="glyphicon glyphicon-remove-circle"></a></td>
-                    </tr>';       
+                        <td>'.$registro2['supplierID'].'</td>
+                        <td>'.$registro2['supplierRut'].'</td>
+                        <td>'.$registro2['supplierName'].'</td>
+                        <td>'.$registro2['supplierDescrip'].'</td>
+                        <td><a href="javascript:editarProducto('.$registro2['supplierID'].');" class="glyphicon glyphicon-edit"></a> <a href="javascript:eliminarProducto('.$registro2['supplierID'].');" class="glyphicon glyphicon-remove-circle"></a></td>
+                    </tr>'; 
+                          
             }
         ?>
         </table>
@@ -60,7 +61,7 @@
               <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
                <h4 class="modal-title" id="myModalLabel"><b>Registra o Edita un Producto</b></h4>
             </div>
-            <form id="formulario" class="formulario" onsubmit="return agregaRegistro(rut);">
+            <form id="formulario" class="formulario" onsubmit="return agregaRegistro();">
             <div class="modal-body">
 				<table border="0" width="100%">
                		 <tr>

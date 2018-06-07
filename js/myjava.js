@@ -30,7 +30,7 @@ $(function(){
 	return false;
 	});
 	
-	$('#nuevo-producto').on('click',function(){
+	$('#nuevo-proveedor').on('click',function(){
 		$('#formulario')[0].reset();
 		$('#pro').val('Registro');
 		$('#edi').hide();
