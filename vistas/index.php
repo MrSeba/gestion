@@ -20,8 +20,7 @@
     <table border="0" align="center">
     	<tr>
         	<td width="335"><input type="text" placeholder="Busca un producto por: Nombre o Tipo" id="bs-prod"/></td>
-            <td width="100"><button id="nuevo-proveedor" class="btn btn-primary">Nuevo Proveedor</button></td>
-            &nbsp;&nbsp;
+            <td width="150"><button id="nuevo-proveedor" class="btn btn-primary">Nuevo Proveedor</button></td>
             <td width="100"><button id="nuevo-producto" class="btn btn-primary">Nueva Factura</button></td>
         </tr>
     </table>
