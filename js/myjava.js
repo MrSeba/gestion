@@ -136,7 +136,6 @@ var pregunta = confirm('¿Esta seguro de eliminar este Producto?');
 			$('#agrega-registros').html(registro); return false; 
 		} 
 	    });
-		e.preventDefault(); return false; 
 	}
 }
  
