@@ -153,7 +153,7 @@ $('#formulario')[0].reset();
 					$('#reg').hide(); 
 					$('#edi').show();
 					$('#pro').val('Edicion'); 
-					$('#id-prod').val(id);
+					$('#id-prov').val(id);
 					$('#rut').val(valores[0]); 
 					$('#nombre').val(valores[1]); 
 					$('#descrip').val(valores[2]);

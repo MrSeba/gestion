@@ -12,11 +12,6 @@ $estado = "1";
 switch($proceso){
 	case 'Registro':
 		$sql="INSERT INTO supplier (supplierRut, supplierName, supplierDescrip, supplierStatus, process) VALUES ('$rutprov','$nombre','$descripcion','$estado', '$proceso')";
-		/*if ($conexion->query($sql)==TRUE) {
-			echo "Agregado Exitosamente";
-		}else{
-			echo "Error: ".$sql . "<br>" . $conexion->error;
-		}*/
 		mysqli_query($conexion,$sql);
 	break;
 		/*$res= mysqli_query($conexion,"SELECT COUNT() from supplier where supplierRut='$rutprov'");
@@ -30,12 +25,15 @@ switch($proceso){
 		}*/
 		
 	case 'Edicion':
-		$sql="UPDATE supplier SET supplierRut = '$rutprov', supplierName = '$nombre', supplierDescrip = '$descripcion' WHERE supplierID = '$id'";
-		if (mysqli_query($conexion, $sql)) {
-    		echo "puta la wea";
+	/*	$sql2="UPDATE supplier SET supplierRut = '$rutprov', supplierName = '$nombre', supplierDescrip = '$descripcion' , process = '$proceso' WHERE supplierID = '$id'";*/
+	$sql2="UPDATE `supplier` SET supplierRut='".$rutprov."', supplierName ='".$nombre."', supplierDescrip='".$descripcion."', process='".$proceso."' WHERE supplierID='".$id."'";
+		if (mysqli_query($conexion, $sql2)) {
+    		echo "funciona mierda ".$id;
+    		
 		} else {
-   			 echo "Error updating record: " . mysqli_error($conn);
+   			 echo "Error updating record: " . mysqli_error($conexion);
 		}
+		//mysql_close($conexion);
 		//mysqli_query($conexion,$sql);
 	break;
 }
@@ -66,5 +64,5 @@ echo '<table class="table table-striped table-condensed table-hover">
 	}
 echo '</table>';
 
-mysqli_close($conexion);
+
 ?>

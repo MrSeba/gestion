@@ -11,7 +11,7 @@ $registro = mysqli_query($conexion,"SELECT * FROM supplier WHERE supplierName LI
 
 echo '<table class="table table-striped table-condensed table-hover">
         	<tr>
-            	<th width="50"> #</th>
+            	<th width="50">#</th>
                 <th width="80"> R.U.T</th>
                 <th width="150"> Nombre</th>
                 <th width="150"> Descripcion</th>
@@ -30,7 +30,7 @@ if(mysqli_num_rows($registro)>0){
 }else{
 	echo '<tr>
 				<td colspan="6">No se encontraron resultados</td>
-			</tr>';
+		  </tr>';
 }
 echo '</table>';
 ?>
