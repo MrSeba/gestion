@@ -5,7 +5,7 @@ $dato = $_POST['dato'];
 
 //EJECUTAMOS LA CONSULTA DE BUSQUEDA
 
-$registro = mysqli_query($conexion,"SELECT * FROM supplier WHERE supplierName LIKE '%$dato%' ORDER BY supplierID ASC");
+$registro = mysqli_query($conexion,"SELECT * FROM supplier WHERE supplierName LIKE '%$dato%' OR supplierDescrip LIKE '%$dato%' ORDER BY supplierID ASC");
 
 //CREAMOS NUESTRA VISTA Y LA DEVOLVEMOS AL AJAX
 
@@ -29,7 +29,7 @@ if(mysqli_num_rows($registro)>0){
 	}
 }else{
 	echo '<tr>
-				<td colspan="6">No se encontraron resultados</td>
+				<td colspan="4">No se encontraron resultados</td>
 		  </tr>';
 }
 echo '</table>';

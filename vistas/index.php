@@ -52,6 +52,7 @@
             }
         ?>
         </table>
+          <a href="reporteexcel.php"> Haz clic para descargar el reporte</a>
     </div>
     <!-- MODAL PARA EL REGISTRO DE PRODUCTOS-->
     <div class="modal fade" id="registra-producto" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">

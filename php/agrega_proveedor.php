@@ -27,14 +27,16 @@ switch($proceso){
 	case 'Edicion':
 	/*	$sql2="UPDATE supplier SET supplierRut = '$rutprov', supplierName = '$nombre', supplierDescrip = '$descripcion' , process = '$proceso' WHERE supplierID = '$id'";*/
 	$sql2="UPDATE `supplier` SET supplierRut='".$rutprov."', supplierName ='".$nombre."', supplierDescrip='".$descripcion."', process='".$proceso."' WHERE supplierID='".$id."'";
-		if (mysqli_query($conexion, $sql2)) {
+		
+
+		/*if (mysqli_query($conexion, $sql2)) {
     		echo "funciona mierda ".$id;
     		
 		} else {
    			 echo "Error updating record: " . mysqli_error($conexion);
-		}
+		}*/
 		//mysql_close($conexion);
-		//mysqli_query($conexion,$sql);
+		mysqli_query($conexion,$sql2);
 	break;
 }
 
