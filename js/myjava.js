@@ -35,8 +35,8 @@ function agregaRegistro(){
 		data:$('#formulario').serialize(),
 		success: function(registro){
 			if ($('#pro').val() == 'Registro'){
-				$('#formulario')[0].reset();
 				$('#mensaje').addClass('bien').html('Registro completado con exito').show(200).delay(3500).hide(200);
+				$('#formulario')[0].reset();
 				$('#pro').val('Registro');
 				$('#agrega-registros').html(registro);
 				return false;

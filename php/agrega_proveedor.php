@@ -12,7 +12,26 @@ $estado = "1";
 switch($proceso){
 	case 'Registro':
 		$sql="INSERT INTO supplier (supplierRut, supplierName, supplierDescrip, supplierStatus, process) VALUES ('$rutprov','$nombre','$descripcion','$estado', '$proceso')";
-		mysqli_query($conexion,$sql);
+		
+		$result = mysqli_query($conexion,"SELECT * FROM supplier WHERE supplierRut='$rutprov'"); 
+        echo mysqli_num_rows($result);
+		if (mysqli_num_rows($result)>0)
+		{
+			    echo"	<script>alert('Registro ya existe')</script>";
+		} else {
+			mysqli_query($conexion,$sql);
+            
+		
+		}
+
+
+
+		
+	
+
+
+
+
 	break;
 		/*$res= mysqli_query($conexion,"SELECT COUNT() from supplier where supplierRut='$rutprov'");
 		echo $res;
@@ -27,15 +46,6 @@ switch($proceso){
 	case 'Edicion':
 	/*	$sql2="UPDATE supplier SET supplierRut = '$rutprov', supplierName = '$nombre', supplierDescrip = '$descripcion' , process = '$proceso' WHERE supplierID = '$id'";*/
 	$sql2="UPDATE `supplier` SET supplierRut='".$rutprov."', supplierName ='".$nombre."', supplierDescrip='".$descripcion."', process='".$proceso."' WHERE supplierID='".$id."'";
-		
-
-		/*if (mysqli_query($conexion, $sql2)) {
-    		echo "funciona mierda ".$id;
-    		
-		} else {
-   			 echo "Error updating record: " . mysqli_error($conexion);
-		}*/
-		//mysql_close($conexion);
 		mysqli_query($conexion,$sql2);
 	break;
 }

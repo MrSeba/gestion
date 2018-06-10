@@ -16,20 +16,10 @@
 <script src="../bootstrap/js/bootstrap.js"></script>
 </head>
 <body>
+    <header>Sistema de Facturas</header>
     <section>
     <table border="0" align="center">
     	<tr>
-           <ul>
-              <li><a href="index.php">Inicio</a></li>
-              <li><a href="agregar_presupuesto.php">Presupuesto</a></li>
-              <li><a href="contact.asp">Contact</a></li>
-              <li><a href="about.asp">About</a></li>
-          </ul> 
-
-        </tr>
-        
-
-        <tr>
         	<td width="335"><input type="text" placeholder="Busca un producto por: Nombre o Tipo" id="bs-prod"/></td>
             <td width="150"><button id="nuevo-proveedor" class="btn btn-primary">Nuevo Proveedor</button></td>
             <td width="100"><button id="nuevo-producto" class="btn btn-primary">Nueva Factura</button></td>
